@@ -185,6 +185,16 @@ p{
    background-color: #00000020;
 }
 
+.outerContainer.end .sectionHeader{
+   font-size: 200px;
+}
+
+.outerContainer.end p:nth-child(2){
+   text-align: center;
+   margin-top: 1vh;
+   font-size: 50px;
+}
+
 #imgSection3{
    display: none;
    grid-column-start: 1;

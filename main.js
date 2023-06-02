@@ -227,7 +227,7 @@ window.onload = () => {
    })
 
    nextButton.addEventListener('click', event => {
-      if(currentPage > 3)return
+      if(currentPage > 4)return
       currentPage++
 
       switchSectionsIncrement(currentPage - 1)
@@ -239,7 +239,7 @@ window.onload = () => {
          previousButton.classList.add('show')
       }
 
-      if(currentPage > 3){
+      if(currentPage > 4){
          nextButton.classList.add('hidden')
          nextButton.classList.remove('show')
       }
@@ -260,7 +260,7 @@ window.onload = () => {
          previousButton.classList.remove('show')
       }
 
-      if(currentPage < 4){
+      if(currentPage < 5){
          nextButton.classList.remove('hidden')
          nextButton.classList.add('show')
       }
