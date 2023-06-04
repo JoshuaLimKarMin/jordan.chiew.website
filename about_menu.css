@@ -12,6 +12,31 @@
    transition: .5s all ease-in-out
 }
 
+#aboutMenu button.closeButton{
+   position: absolute;
+   text-align: center;
+   place-items: center;
+   right: 0;
+   top: 0;
+   height: 3.5rem;
+   width: 3.5rem;
+   font-size: 2rem;
+   background: none;
+   border: none;
+   transition: all .125s ease-in-out
+}
+
+#aboutMenu button.closeButton:focus-visible, #aboutMenu button.closeButton:hover{
+   display: grid;
+   font-size: 3rem;
+   outline: none;
+   color: #ff0000
+}
+
+#aboutMenu button.closeButton:hover{
+   cursor: pointer;
+}
+
 #aboutMenu .sectionHeader{
    font-size: 50px;
 }
@@ -26,4 +51,23 @@
 
 #developerSection.hidden{
    opacity: 0;
+}
+
+#aboutMenu #version{
+   position: absolute;
+   bottom: 10px;
+   left: 10px;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: .5rem
+}
+
+#aboutMenu .license{
+   right: 10px;
+   bottom: 10px;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: .5rem
+}
+
+#aboutMenu #license{
+   position: absolute;
 }

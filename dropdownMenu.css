@@ -125,6 +125,10 @@
    width: 10px;
 }
 
+#sectionsButton.selection{
+   display: none
+}
+
 #sectionsEmoji div.left{
    margin-right: -2px;
    border-left-color: #00000000
@@ -139,7 +143,7 @@
    color: #09f;
    border: 2px solid #09f;
    border-radius: 100%;
-   margin-left: -8px;
+   margin-left: 0;
    font-size: 18px;
    font-weight: 700;
    width: 20px;

@@ -15,6 +15,7 @@ window.onload = () => {
    const imageForSection3 = document.querySelector('#imgSection3')
    const imageForSection4 = document.querySelector('#imgSection4')
    const aboutMenu = document.querySelector('#aboutMenu')
+   const aboutMenuCloseButton = document.querySelector('#aboutMenu button.closeButton')
    const developerSections = document.querySelector('#developerSection')
 
    const isMobile = () => /Android|iPhone/i.test(navigator.userAgent) && navigator.maxTouchPoints > 0
@@ -195,7 +196,25 @@ window.onload = () => {
    const aboutButtonAction = () => {
       dropdownMenuClose()
       aboutMenu.classList.add('show')
+      aboutMenuCloseButton.addEventListener('click', event => {
+         aboutMenu.classList.remove('show')
+         aboutMenuButton.removeEventListener('click', aboutButtonAction)
+      })
+
+      let typed = null
+
       document.addEventListener('keydown', event => {
+         if(event.key === 'd'){
+            if(typed !== null)return typed = null
+            typed = 'd'
+         }else if(event.key === 'e'){
+            if(typed !== 'd')return typed = null
+            typed = 'de'
+         }else if(event.key === 'v'){
+            if(typed !== 'de')return typed = null
+            developerSections.classList.remove('hidden')
+         }else typed = null
+
          if(event.key === 'Escape'){
             aboutMenu.classList.remove('show')
             aboutMenuButton.removeEventListener('click', aboutButtonAction)
@@ -226,7 +245,10 @@ window.onload = () => {
       }
    })
 
+   let changeLock = false
+
    nextButton.addEventListener('click', event => {
+      if(changeLock)return
       if(currentPage > 4)return
       currentPage++
 
@@ -243,9 +265,14 @@ window.onload = () => {
          nextButton.classList.add('hidden')
          nextButton.classList.remove('show')
       }
+
+      changeLock = true
+
+      setTimeout(() => changeLock = false, 1000);
    })
 
    previousButton.addEventListener('click', event => {
+      if(changeLock)return
       if(currentPage < 1)return
       currentPage--
 
@@ -264,5 +291,11 @@ window.onload = () => {
          nextButton.classList.remove('hidden')
          nextButton.classList.add('show')
       }
+
+      changeLock = true
+
+      setTimeout(() => {
+         changeLock = false
+      }, 1000);
    })
 }
